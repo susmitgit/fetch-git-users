@@ -35,6 +35,7 @@ const Users = () => {
     return <>Loading..</>;
   }
   if (isError) {
+    console.log("Error Data", errorData);
     return <>Error..{errorData && errorData.message}</>;
   }
   const renderData = (users) => {
@@ -44,7 +45,7 @@ const Users = () => {
         {users.map(({ id, login, avatar_url }) => {
           return (
             <li className="list-inline-item" key={id}>
-              <img src={avatar_url} style={{ height: 50 }} />
+              <img src={avatar_url} style={{ height: 50 }} alt={login} />
               {login}
             </li>
           );
